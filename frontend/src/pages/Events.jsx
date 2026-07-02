@@ -6,7 +6,7 @@ const DUMMY_EVENTS = [
     title: "Some event",
   },
   {
-    id: "e1",
+    id: "e2",
     title: "Another event",
   },
 ];
