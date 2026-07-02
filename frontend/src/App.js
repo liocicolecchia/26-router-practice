@@ -1,12 +1,5 @@
 // Challenge / Exercise
 
-// 2. Add routing & route definitions for these five pages
-//    - / => HomePage
-//    - /events => EventsPage
-//    - /events/<some-id> => EventDetailPage
-//    - /events/new => NewEventPage
-//    - /events/<some-id>/edit => EditEventPage
-// 3. Add a root layout that adds the <MainNavigation> component above all page components
 // 4. Add properly working links to the MainNavigation
 // 5. Ensure that the links in MainNavigation receive an "active" class when active
 // 6. Output a list of dummy events to the EventsPage
@@ -21,13 +14,20 @@ import Events from "./pages/Events";
 import EventDetail from "./pages/EventDetail";
 import NewEvent from "./pages/NewEvent";
 import EditEvent from "./pages/EditEvent";
+import RootLayout from "./pages/RootLayout";
 
 const router = createBrowserRouter([
-  { path: "/", element: <Home /> },
-  { path: "/events", element: <Events /> },
-  { path: "/events/:eventId", element: <EventDetail /> },
-  { path: "/events/new", element: <NewEvent /> },
-  { path: "/events/:eventId/edit", element: <EditEvent /> },
+  {
+    path: "/",
+    element: <RootLayout />,
+    children: [
+      { index: true, element: <Home /> },
+      { path: "events", element: <Events /> },
+      { path: "events/:eventId", element: <EventDetail /> },
+      { path: "events/new", element: <NewEvent /> },
+      { path: "events/:eventId/edit", element: <EditEvent /> },
+    ],
+  },
 ]);
 
 function App() {
