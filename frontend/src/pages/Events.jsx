@@ -3,7 +3,8 @@ import { useLoaderData } from "react-router";
 import EventsList from "../components/EventsList";
 
 function Events() {
-  const events = useLoaderData();
+  const data = useLoaderData();
+  const events = data.events;
 
   return (
     <>
@@ -20,7 +21,6 @@ export async function loader() {
   if (!response.ok) {
     // incorrect response still to be fixed
   } else {
-    const resData = await response.json();
-    return resData.events;
+    return response;
   }
 }
