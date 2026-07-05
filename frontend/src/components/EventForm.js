@@ -3,7 +3,7 @@ import { Form, useNavigate, useNavigation, useActionData } from "react-router";
 import classes from "./EventForm.module.css";
 
 function EventForm({ method, event }) {
-  const data = useActionData;
+  const data = useActionData();
   const navigate = useNavigate();
   const navigation = useNavigation();
 
